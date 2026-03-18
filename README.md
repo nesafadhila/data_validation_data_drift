@@ -147,7 +147,7 @@ Request → Hive → (fallback) Redis → Pandas → Great Expectations → JSON
     "data": {
         "expectation_results": [
             {
-                "column": "acronym",
+                "column": "{column}",
                 "expectation_type": "expect_column_values_to_be_of_type",
                 "observed_values": null,
                 "success": true,
@@ -177,7 +177,7 @@ Request → Hive → (fallback) Redis → Pandas → Great Expectations → JSON
 
 ## 🧪 Example
 
-curl "http://localhost:5522/type?id=my_table&columns=age&type=Integer"
+curl "http://localhost:PORT/type?id=my_table&columns=age&type=Integer"
 
 # Data Drift API (Evidently)
 
@@ -325,7 +325,7 @@ generated_reports/
 
 ## 🧪 Example
 
-curl -X POST http://localhost:3636/drift \
+curl -X POST http://localhost:PORT/drift \
 -H "Content-Type: application/json" \
 -d {
     "id_ref": "{file_id}",
